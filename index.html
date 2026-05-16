@@ -3,39 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>電腦軟體應用｜線上模擬測驗</title>
+  <title>線上模擬測驗｜多題庫版</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="page">
     <header class="topbar">
       <div>
-        <h1>電腦軟體應用 乙檢學科題庫</h1>
-        <p>線上模擬測驗｜單選 60 題、複選 20 題</p>
+        <h1 id="mainTitle">線上模擬測驗</h1>
+        <p id="subtitle">選擇題庫後即可開始測驗</p>
       </div>
-      <div class="timer" id="timer">00:00</div>
+      <div class="timerBox">
+        <div class="timer" id="timer">00:00</div>
+        <div class="limit">限時 30:00</div>
+      </div>
     </header>
 
     <section class="panel controls">
       <div class="control-row">
-        <label>單選題數 <input id="singleCount" type="number" min="1" max="600" value="60"></label>
-        <label>複選題數 <input id="multiCount" type="number" min="1" max="160" value="20"></label>
+        <label>題庫
+          <select id="bankSelect"></select>
+        </label>
+        <label>單選題數 <input id="singleCount" type="number" min="0" value="50"></label>
+        <label>複選題數 <input id="multiCount" type="number" min="0" value="0"></label>
         <button id="startBtn" type="button">重新抽題</button>
       </div>
-      <p class="hint">作答後按「解答完畢看分數」。答錯時會保留你原本勾選的答案，並標出正確答案。</p>
+      <p class="hint">預設為機車考照題庫，隨機 50 題，限時 30 分鐘。答錯時會保留你原本勾選的答案，並標出正確答案。</p>
     </section>
 
     <section id="quiz" class="quiz"></section>
 
     <section class="actionbar">
       <button id="gradeBtn" type="button">解答完畢看分數</button>
+      <button id="wrongBtn" type="button">只看錯題</button>
       <button id="topBtn" type="button">回到最上面</button>
     </section>
 
     <section id="result" class="result"></section>
   </main>
 
-  <script src="questions.js"></script>
+  <script src="banks.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
